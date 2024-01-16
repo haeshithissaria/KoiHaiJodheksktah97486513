@@ -1,0 +1,103 @@
+/* bill.css */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+h1 {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
+
+#bill-details {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+h2 {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+
+#totalPrice {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#paymentMethod {
+  font-weight: bold;
+}
+
+#billNumber {
+  font-weight: bold;
+  display: inline-block;
+}
+
+#generateAndSend,
+#printBill {
+  margin-top: 20px;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 42%;
+  border-radius: 5px;
+}
+
+#generateAndSend:hover,
+#printBill:hover {
+  background-color: #555;
+}
+
+.date-time{
+  padding-left: 50px;
+}
+
+#doneButton {
+  margin-left: 47%;
+  background-color: #333; /* Green color for the button */
+  color: #fff; /* White text color */
+  padding: 10px 20px; /* Padding for the button */
+  border: none; /* No border */
+  cursor: pointer; /* Cursor style on hover */
+  font-size: 16px; /* Font size */
+  border-radius: 5px; /* Rounded corners */
+  margin-top: 20px; /* Top margin */
+}
+
+#doneButton:hover {
+  background-color: #555; /* Darker green on hover */
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FinalBill</title>
+  <link rel="stylesheet" type="text/css" href="bill.css">
+  
+</head>
+<body>
+  <h1>Customer Bill</h1>
+  <div id="bill-details">
+    <h3>
+      Bill Number: <span id="billNumber"></span>
+      <span id="date-time" style="margin-left: 80px;"></span>
+    </h3>
+    <h2>Customer Details</h2>
+    <p><strong>Customer Name:</strong> <span id="customerName"></span></p>
+    <p class="mn"><strong>Mobile Number:</strong> <span id="mobileNumber"></span></p>
+    <h2>Products</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Product Name</th>
+          <th>Unit Measure</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Final Price</th>
+        </tr>
+      </thead>
+      <tbody id="product-details">
+        <!-- Product details will be inserted here using JavaScript -->
+      </tbody>
+    </table>
+    <h2>Total: <span id="totalPrice">0</span></h2>
+    <h2>Payment Method: <span id="paymentMethod"></span></h2>
+  </div>
+  <button id="generateAndSend">Download & Share Bill</button>
+  <button id="doneButton">Done</button>
+  
+  <script>
+    window.addEventListener("DOMContentLoaded", function () {
+      // Retrieve payment method from sessionStorage
+      var savedPaymentMethod = sessionStorage.getItem('paymentMethod');
+      var paymentMethodElement = document.getElementById("paymentMethod");
+  
+      if (savedPaymentMethod) {
+        // Display the payment method
+        paymentMethodElement.textContent = savedPaymentMethod;
+      } else {
+        paymentMethodElement.textContent = "Pending";
+      }
+      
+     // Event listener for the Done button
+     var doneButton = document.getElementById("doneButton");
+    doneButton.addEventListener("click", redirectToBillWindow);
+  });
+
+  // Function to redirect to billwindow.html
+  function redirectToBillWindow() {
+    window.location.href = "billwindow.html";
+  }
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="bill.js"></script>
+  <script>
+     window.addEventListener("DOMContentLoaded", function () {
+      // Your existing code here...
+
+      // Event listener for the button to generate PDF and redirect to WhatsApp
+      var generateAndSendButton = document.getElementById("generateAndSend");
+      generateAndSendButton.addEventListener("click", generatePDFAndSend);
+    });
+
+    // Function to generate PDF and redirect to WhatsApp
+    function generatePDFAndSend() {
+      // Use HTML2PDF to generate the PDF
+      var element = document.getElementById("bill-details"); // Specify the element to be converted to PDF
+
+      // Get the customer's name
+      var customerName = document.getElementById("customerName").textContent.trim();
+
+      // Construct the PDF file name with the customer's name
+      var pdfFileName = customerName + '.pdf';
+
+      // Specify options for PDF generation (e.g., filename)
+      var pdfOptions = { filename: pdfFileName };
+
+      // Generate the PDF with the specified options
+      html2pdf(element, pdfOptions);
+
+      // Get the customer's mobile number
+      var mobileNumber = document.getElementById("mobileNumber").textContent.trim();
+
+      // Construct the WhatsApp Web link with the mobile number
+      var whatsappWebLink = 'https://web.whatsapp.com/send?phone=91' + mobileNumber;
+
+      // Open WhatsApp Web in a new tab
+      window.open(whatsappWebLink, '_blank');
+    }
+    // Your existing code here...
+  </script>
+
+</body>
+</html>

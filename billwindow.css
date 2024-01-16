@@ -1,0 +1,128 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1 {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  #app {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  #header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  #header label {
+    font-weight: bold;
+  }
+  .mobileNumber{
+    margin-left: 10px;
+  }
+  
+  #header input {
+    width: 48%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  #body h2 {
+    margin: 10px 0;
+  }
+  
+  #product-search {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  #product-search label {
+    font-weight: bold;
+  }
+  
+  #product-search input {
+    width: 80%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  #product-search button {
+    background-color: rgb(76, 175, 80);
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  table, th, td {
+    border: 1px solid #ccc;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  .finalPrice {
+    font-weight: bold;
+  }
+  
+  #totalPrice {
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+  
+  #footer label {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  #footer select, #footer button {
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #footer select {
+    width: 150px;
+    margin-right: 20px;
+  }
+  
+  #footer button {
+    background-color: rgb(76, 175, 80);
+    color: #fff;
+  }
+
+/* Add this CSS to your billwindow.css file */
+td:nth-child(4):not(:last-child){
+  font-size: 0px;
+  visibility: collapse;
+}
+
+
+

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Customer Bill</title>
+  <link rel="stylesheet" type="text/css" href="billwindow.css">
+  <style>
+    /* Add CSS styles for the bill number display */
+    #billNumberDisplay {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+    #onlineStatus {
+      font-weight: bold;
+      font-size: 50px;
+      color: green;
+    }
+
+    #offlineStatus {
+      font-weight: bold;
+      color: red;
+      font-size: 50px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Customer Bill <div id="onlineStatus">Online</div>
+    <div id="offlineStatus">Offline</div></h1>
+  <div id="app">
+    <div id="header">
+      <label for="customerName">Customer Name:</label>
+      <input type="text" id="customerName">
+      <br>
+      <label class="mobileNumber" for="mobileNumber">Mobile Number:</label>
+      <input type="number" id="mobileNumber">
+    </div>
+    <div id="body">
+      <h2>Products</h2>
+      <div id="product-search">
+        <label for="productName">Product Name:</label>
+        <input type="text" id="productName" placeholder="Search for a product">
+        <button id="searchProduct">Search</button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Unit measure</th>
+            <th>Unit Price</th>
+            <th></th>
+            <th>Quantity in Stock</th> <!-- Add this line -->
+            <th>Quantity</th>
+            <th>Final Price</th>
+          </tr>
+        </thead>
+        <tbody id="product-list">
+          <!-- Data will be inserted here using JavaScript -->
+        </tbody>
+      </table>
+    </div>
+    <div id="footer">
+      <h2>Total: <span id="totalPrice">0</span></h2>
+      <div id="billNumberDisplay">Bill Number: <span id="billNumber">Generating...</span></div>
+       <!-- Add online/offline status indicators -->
+      <label for="paymentMethod">Payment Method:</label>
+      <select id="paymentMethod">
+        <option value="cash">Cash</option>
+        <option value="credit">Credit</option>
+        <option value="online">Online</option>
+      </select>
+      <button id="generateBill" onclick="generateBillAndRedirect()">Generate Bill</button>
+      <script>
+        function generateBillAndRedirect() {
+          var paymentMethodSelect = document.getElementById("paymentMethod");
+          var selectedPaymentMethod = paymentMethodSelect.value;
+          
+          console.log("Selected Payment Method:", selectedPaymentMethod); // Log the selected payment method
+      
+          // Save selected payment method to sessionStorage
+          sessionStorage.setItem("paymentMethod", selectedPaymentMethod);
+      
+          // Redirect to bill.html
+          window.location.href = "bill.html";
+        }
+      // Check online/offline status and update the status indicators
+      function updateOnlineStatus() {
+          var onlineStatus = document.getElementById("onlineStatus");
+          var offlineStatus = document.getElementById("offlineStatus");
+
+          if (navigator.onLine) {
+            onlineStatus.style.display = "block";
+            offlineStatus.style.display = "none";
+          } else {
+            onlineStatus.style.display = "none";
+            offlineStatus.style.display = "block";
+          }
+        }
+
+        // Initial check for online/offline status
+        updateOnlineStatus();
+
+        // Add event listeners for online/offline events
+        window.addEventListener('online', updateOnlineStatus);
+        window.addEventListener('offline', updateOnlineStatus);
+      </script>
+    
+    
+    </div>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script src="billwindow.js"></script>
+</body>
+</html>

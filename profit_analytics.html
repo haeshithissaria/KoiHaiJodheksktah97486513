@@ -1,0 +1,42 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profit Calculation</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="profit_analytics.css">
+  </head>
+  <body>
+    <div class="container">
+      <h2>Profit Calculation</h2>
+      <label for="datepicker">Select Date: </label>
+      <input type="text" id="datepicker">
+      <button id="fetchDataButton">Fetch Data</button>
+      <table id="profitTable">
+        <thead>
+          <tr>
+            <th>S.No</th>
+            <th>Product Name</th>
+            <th>Purchase Price</th>
+            <th>Sale Price</th>
+            <th>Quantity Sold</th>
+            <th>Total Purchase Price</th>
+            <th>Total Sale Price</th>
+            <th>Profit</th>
+          </tr>
+        </thead>
+        <tbody id="profitTableBody"></tbody>
+      </table>
+      <div id="totalSale">Total Sale: ₹0.00</div>
+      <div id="totalProfit">Total Profit: ₹0.00</div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="profit_analytics.js"></script>
+    
+  </body>
+  </html>
